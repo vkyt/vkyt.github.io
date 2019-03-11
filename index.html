@@ -4,6 +4,9 @@
 <head>
   <title>Artillery report</title>
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <style>
     body,
     p,
@@ -34,7 +37,26 @@
       font-size: 8pt;
       height: 20em;
     }
-    
+
+    .bg {
+      box-sizing: border-box;
+      height: 460px;
+      width: 1169px;
+      border: 1px solid #D8D8D8;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 16px 0 rgba(213, 213, 213, 0.5);
+    }
+
+    .box {
+      box-sizing: content-box;
+    }
+
+    .rectangle-6 {
+      height: 72px;
+      width: 1280px;
+      background-color: #F7F7F8;
+    }
   </style>
 </head>
 
@@ -42,7 +64,7 @@
 
   <div class="container">
 
-    <div class="row" id="header">
+    <div class="row box" id="header">
       <div class="col-lg-4 col-lg-offset-4">
         <pre style="font-size: 5pt; background-color: #fcfcfc; border: none;">
                 _   _ _ _                                                _
@@ -57,16 +79,69 @@
     </div>
 
     <div class="row">
-      <ul>
+      <h5>With Personalization API</h5>
+    </div>
+    <div class="row">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Environment</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>03/08</td>
+            <td>Local</td>
+            <td>
+              <a href='development_2019-03-08.json.html'>click for report</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <ul>
         <li>Local Run: 03/08
           <a href='development_2019-03-08.json.html'>click for report</a>
         </li>
+      </ul> -->
+    </div>
+    <div class="row">
+      <h5>No Personalization API</h5>
+    </div>
+    <div class="row">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Environment</th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>03/08</td>
+            <td>Staging</td>
+            <td>
+              <a href='staging_2019-03-08-woWall.json.html'>click for report</a>
+            </td>
+          </tr>
+          <tr>
+            <td>03/11</td>
+            <td>Staging</td>
+            <td>
+              <a href='staging_2019-03-11-woWall.json.html'>click for report</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <ul>
         <li>Staging Run: 03/08
           <a href='staging_2019-03-08-woWall.json.html'>click for report</a>
         </li>
         <li>Staging Run: 03/11
           <a href='staging_2019-03-11-woWall.json.html'>click for report</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
