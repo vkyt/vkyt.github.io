@@ -1,0 +1,6153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artillery report</title>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js' charset='utf-8'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js" charset="utf-8"></script>
+
+  <style>
+  body, p, li {
+    font-family: sans-serif;
+    font-size: 10pt;
+  }
+
+  h1 {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+
+  #errorsContainer > p {
+    color: #009900;
+  }
+
+  #footer {
+    padding: 1em;
+    font-size: 0.8em;
+    color: #999;
+    text-align: center;
+    margin-top: 1em;
+    background-color: #eee;
+  }
+  #editor {
+    font-size: 8pt;
+    height: 20em;
+  }
+  </style>
+
+  <script>
+  window.Report = {
+  "aggregate": {
+    "timestamp": "2019-06-13T19:36:30.727Z",
+    "scenariosCreated": 3840,
+    "scenariosCompleted": 3676,
+    "requestsCompleted": 12234,
+    "latency": {
+      "min": 28.2,
+      "max": 60574.8,
+      "median": 1081,
+      "p95": 4969.2,
+      "p99": 7967.4
+    },
+    "rps": {
+      "count": 12256,
+      "mean": 8.48
+    },
+    "scenarioDuration": {
+      "min": 1462.1,
+      "max": 62004.5,
+      "median": 5010.5,
+      "p95": 8632.5,
+      "p99": 13619.9
+    },
+    "scenarioCounts": {
+      "0": 3840
+    },
+    "errors": {
+      "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 19,
+      "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 80,
+      "ESOCKETTIMEDOUT": 3
+    },
+    "codes": {
+      "200": 3506,
+      "302": 8493,
+      "500": 230,
+      "502": 5
+    },
+    "matches": 0,
+    "customStats": {},
+    "counters": {},
+    "phases": [
+      {
+        "duration": 60,
+        "arrivalCount": 60,
+        "name": "Warm up the application"
+      },
+      {
+        "duration": 120,
+        "arrivalCount": 120,
+        "rampTo": 240,
+        "name": "Dial up to max load"
+      },
+      {
+        "duration": 1200,
+        "arrivalCount": 3600,
+        "name": "Maintain max load for 20 minutes"
+      },
+      {
+        "duration": 60,
+        "arrivalCount": 60,
+        "rampTo": 1,
+        "name": "Step down"
+      }
+    ]
+  },
+  "intermediate": [
+    {
+      "timestamp": "2019-06-13T19:12:34.072Z",
+      "scenariosCreated": 9,
+      "scenariosCompleted": 3,
+      "requestsCompleted": 19,
+      "latency": {
+        "min": 307.3,
+        "max": 3309.3,
+        "median": 1057.6,
+        "p95": 3308.4,
+        "p99": 3309.3
+      },
+      "rps": {
+        "count": 25,
+        "mean": 2.8
+      },
+      "scenarioDuration": {
+        "min": 4866.7,
+        "max": 4927.6,
+        "median": 4868.6,
+        "p95": 4927.6,
+        "p99": 4927.6
+      },
+      "scenarioCounts": {
+        "0": 9
+      },
+      "errors": {},
+      "codes": {
+        "200": 3,
+        "302": 16
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 6,
+      "pendingRequests": 6
+    },
+    {
+      "timestamp": "2019-06-13T19:12:44.073Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 11,
+      "requestsCompleted": 31,
+      "latency": {
+        "min": 292.5,
+        "max": 15014.2,
+        "median": 1077.1,
+        "p95": 7191.8,
+        "p99": 15014.2
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3
+      },
+      "scenarioDuration": {
+        "min": 4664,
+        "max": 16703.4,
+        "median": 5836.4,
+        "p95": 16311.6,
+        "p99": 16703.4
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 11,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 5
+    },
+    {
+      "timestamp": "2019-06-13T19:12:54.074Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 11,
+      "requestsCompleted": 31,
+      "latency": {
+        "min": 305,
+        "max": 4777.8,
+        "median": 1074.7,
+        "p95": 4609.2,
+        "p99": 4777.8
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3
+      },
+      "scenarioDuration": {
+        "min": 4293.5,
+        "max": 6378.5,
+        "median": 4478.7,
+        "p95": 6371.1,
+        "p99": 6378.5
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 11,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 4,
+      "pendingRequests": 4
+    },
+    {
+      "timestamp": "2019-06-13T19:13:04.075Z",
+      "scenariosCreated": 11,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 300,
+        "max": 5198.6,
+        "median": 1075.3,
+        "p95": 4665.3,
+        "p99": 5198.6
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3
+      },
+      "scenarioDuration": {
+        "min": 4530.6,
+        "max": 6799.8,
+        "median": 5315,
+        "p95": 6799.8,
+        "p99": 6799.8
+      },
+      "scenarioCounts": {
+        "0": 11
+      },
+      "errors": {},
+      "codes": {
+        "200": 10,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 4
+    },
+    {
+      "timestamp": "2019-06-13T19:13:14.077Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 316,
+        "max": 5876.1,
+        "median": 1099.9,
+        "p95": 4290.8,
+        "p99": 5876.1
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3
+      },
+      "scenarioDuration": {
+        "min": 4276.4,
+        "max": 7522.2,
+        "median": 5070.1,
+        "p95": 7522.2,
+        "p99": 7522.2
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 10,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 4
+    },
+    {
+      "timestamp": "2019-06-13T19:13:24.078Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 305.8,
+        "max": 4632.1,
+        "median": 1071.9,
+        "p95": 4446.4,
+        "p99": 4632.1
+      },
+      "rps": {
+        "count": 31,
+        "mean": 3.1
+      },
+      "scenarioDuration": {
+        "min": 4632.9,
+        "max": 6448.5,
+        "median": 5094,
+        "p95": 6448.5,
+        "p99": 6448.5
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 10,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 5
+    },
+    {
+      "timestamp": "2019-06-13T19:13:34.079Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 299.6,
+        "max": 6571.7,
+        "median": 1091.4,
+        "p95": 6385.2,
+        "p99": 6571.7
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.02
+      },
+      "scenarioDuration": {
+        "min": 4702.4,
+        "max": 8148.4,
+        "median": 4982.6,
+        "p95": 8148.4,
+        "p99": 8148.4
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 10,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 5
+    },
+    {
+      "timestamp": "2019-06-13T19:13:44.080Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 26,
+      "latency": {
+        "min": 321.4,
+        "max": 5999.6,
+        "median": 1083.4,
+        "p95": 5544.3,
+        "p99": 5999.6
+      },
+      "rps": {
+        "count": 26,
+        "mean": 2.63
+      },
+      "scenarioDuration": {
+        "min": 3665.9,
+        "max": 7634.3,
+        "median": 4955.9,
+        "p95": 7634.3,
+        "p99": 7634.3
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 10,
+        "302": 16
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 5
+    },
+    {
+      "timestamp": "2019-06-13T19:13:54.081Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 31,
+      "latency": {
+        "min": 39,
+        "max": 5634.8,
+        "median": 1056.6,
+        "p95": 4166.6,
+        "p99": 5634.8
+      },
+      "rps": {
+        "count": 33,
+        "mean": 3.33
+      },
+      "scenarioDuration": {
+        "min": 3446.3,
+        "max": 7205.4,
+        "median": 4045,
+        "p95": 7205.4,
+        "p99": 7205.4
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 8,
+        "302": 23
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 6,
+      "pendingRequests": 7
+    },
+    {
+      "timestamp": "2019-06-13T19:14:04.082Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 9,
+      "requestsCompleted": 40,
+      "latency": {
+        "min": 95.9,
+        "max": 7154.8,
+        "median": 736.3,
+        "p95": 4854.7,
+        "p99": 7154.8
+      },
+      "rps": {
+        "count": 40,
+        "mean": 4.03
+      },
+      "scenarioDuration": {
+        "min": 3375.3,
+        "max": 8702.1,
+        "median": 5689.8,
+        "p95": 8702.1,
+        "p99": 8702.1
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 9,
+        "302": 31
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 6,
+      "pendingRequests": 7
+    },
+    {
+      "timestamp": "2019-06-13T19:14:14.084Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 11,
+      "requestsCompleted": 31,
+      "latency": {
+        "min": 294.9,
+        "max": 6065.3,
+        "median": 1090,
+        "p95": 3857.1,
+        "p99": 6065.3
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.03
+      },
+      "scenarioDuration": {
+        "min": 3596.1,
+        "max": 7711.1,
+        "median": 5073.7,
+        "p95": 7598.3,
+        "p99": 7711.1
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 11,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 6
+    },
+    {
+      "timestamp": "2019-06-13T19:14:24.086Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 31,
+      "latency": {
+        "min": 37.4,
+        "max": 4495.9,
+        "median": 1071.2,
+        "p95": 4442.1,
+        "p99": 4495.9
+      },
+      "rps": {
+        "count": 33,
+        "mean": 3.32
+      },
+      "scenarioDuration": {
+        "min": 3750.6,
+        "max": 6084.9,
+        "median": 4498.8,
+        "p95": 6084.9,
+        "p99": 6084.9
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 8,
+        "302": 23
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 6,
+      "pendingRequests": 8
+    },
+    {
+      "timestamp": "2019-06-13T19:14:34.088Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 320.4,
+        "max": 6166.6,
+        "median": 1065,
+        "p95": 5302.8,
+        "p99": 6166.6
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.02
+      },
+      "scenarioDuration": {
+        "min": 3394.6,
+        "max": 7739.9,
+        "median": 4946.7,
+        "p95": 7739.9,
+        "p99": 7739.9
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 10,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 6,
+      "pendingRequests": 8
+    },
+    {
+      "timestamp": "2019-06-13T19:14:44.090Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 11,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 329.5,
+        "max": 15569.1,
+        "median": 1091.9,
+        "p95": 3996,
+        "p99": 15569.1
+      },
+      "rps": {
+        "count": 28,
+        "mean": 2.83
+      },
+      "scenarioDuration": {
+        "min": 3805.1,
+        "max": 17276.8,
+        "median": 4894.1,
+        "p95": 16693,
+        "p99": 17276.8
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 12,
+        "302": 18
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 4,
+      "pendingRequests": 6
+    },
+    {
+      "timestamp": "2019-06-13T19:14:54.092Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 7,
+      "requestsCompleted": 37,
+      "latency": {
+        "min": 93.2,
+        "max": 4036.8,
+        "median": 407.7,
+        "p95": 3232,
+        "p99": 4036.8
+      },
+      "rps": {
+        "count": 38,
+        "mean": 3.82
+      },
+      "scenarioDuration": {
+        "min": 3841.2,
+        "max": 6007.4,
+        "median": 4705.4,
+        "p95": 6007.4,
+        "p99": 6007.4
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 8,
+        "302": 29
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 7
+    },
+    {
+      "timestamp": "2019-06-13T19:15:04.094Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 9,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 300.1,
+        "max": 4020.2,
+        "median": 1079.4,
+        "p95": 3738.3,
+        "p99": 4020.2
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.01
+      },
+      "scenarioDuration": {
+        "min": 3572.5,
+        "max": 5809,
+        "median": 4600.2,
+        "p95": 5809,
+        "p99": 5809
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 10,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 7
+    },
+    {
+      "timestamp": "2019-06-13T19:15:14.096Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 9,
+      "requestsCompleted": 27,
+      "latency": {
+        "min": 307.8,
+        "max": 10906.5,
+        "median": 1088.4,
+        "p95": 8904.3,
+        "p99": 10906.5
+      },
+      "rps": {
+        "count": 28,
+        "mean": 3.1
+      },
+      "scenarioDuration": {
+        "min": 3442.2,
+        "max": 12520.5,
+        "median": 4554.3,
+        "p95": 12520.5,
+        "p99": 12520.5
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 9,
+        "302": 18
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 6,
+      "pendingRequests": 8
+    },
+    {
+      "timestamp": "2019-06-13T19:15:24.098Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 9,
+      "requestsCompleted": 29,
+      "latency": {
+        "min": 312.6,
+        "max": 6683.3,
+        "median": 1074.4,
+        "p95": 5258.5,
+        "p99": 6683.3
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.02
+      },
+      "scenarioDuration": {
+        "min": 3819.6,
+        "max": 8333.7,
+        "median": 5467.9,
+        "p95": 8333.7,
+        "p99": 8333.7
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 9,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 7,
+      "pendingRequests": 9
+    },
+    {
+      "timestamp": "2019-06-13T19:15:34.100Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 18,
+      "requestsCompleted": 84,
+      "latency": {
+        "min": 96.2,
+        "max": 8891.5,
+        "median": 1062,
+        "p95": 4304.9,
+        "p99": 8051.6
+      },
+      "rps": {
+        "count": 95,
+        "mean": 9.58
+      },
+      "scenarioDuration": {
+        "min": 4049.1,
+        "max": 10493.6,
+        "median": 5113.4,
+        "p95": 9506.5,
+        "p99": 10493.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 18,
+        "302": 66
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:15:44.104Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 105,
+      "latency": {
+        "min": 93.2,
+        "max": 8075.8,
+        "median": 1064.5,
+        "p95": 6010.2,
+        "p99": 7903.7
+      },
+      "rps": {
+        "count": 105,
+        "mean": 10.61
+      },
+      "scenarioDuration": {
+        "min": 3660.6,
+        "max": 9674.7,
+        "median": 5915.3,
+        "p95": 9366.4,
+        "p99": 9674.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 76
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:15:54.108Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 110,
+      "latency": {
+        "min": 51,
+        "max": 6690.5,
+        "median": 1085.4,
+        "p95": 5108.4,
+        "p99": 6379.5
+      },
+      "rps": {
+        "count": 108,
+        "mean": 10.83
+      },
+      "scenarioDuration": {
+        "min": 3320.1,
+        "max": 8303.5,
+        "median": 5235.9,
+        "p95": 7967.1,
+        "p99": 8303.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2,
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 80,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 18
+    },
+    {
+      "timestamp": "2019-06-13T19:16:04.109Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 84,
+      "latency": {
+        "min": 311.8,
+        "max": 7252.1,
+        "median": 1079.8,
+        "p95": 6336.7,
+        "p99": 7021.8
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.13
+      },
+      "scenarioDuration": {
+        "min": 3488.7,
+        "max": 8846.7,
+        "median": 6035.1,
+        "p95": 8650.8,
+        "p99": 8846.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 23,
+        "302": 60,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 22,
+      "pendingRequests": 24
+    },
+    {
+      "timestamp": "2019-06-13T19:16:14.113Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 34,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 302.6,
+        "max": 9780.7,
+        "median": 1104.6,
+        "p95": 6574.6,
+        "p99": 9472.4
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.87
+      },
+      "scenarioDuration": {
+        "min": 3222,
+        "max": 11363.8,
+        "median": 6263,
+        "p95": 10601.4,
+        "p99": 11363.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 58,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:16:24.116Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 107,
+      "latency": {
+        "min": 93.8,
+        "max": 6412.5,
+        "median": 1066.8,
+        "p95": 5001,
+        "p99": 6320.8
+      },
+      "rps": {
+        "count": 110,
+        "mean": 11.13
+      },
+      "scenarioDuration": {
+        "min": 3726.9,
+        "max": 8097.9,
+        "median": 5336.2,
+        "p95": 8087.3,
+        "p99": 8097.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 25,
+        "302": 82
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 20,
+      "pendingRequests": 23
+    },
+    {
+      "timestamp": "2019-06-13T19:16:34.170Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 90,
+      "latency": {
+        "min": 323.1,
+        "max": 10877.4,
+        "median": 1084,
+        "p95": 7221.3,
+        "p99": 9765.8
+      },
+      "rps": {
+        "count": 89,
+        "mean": 8.91
+      },
+      "scenarioDuration": {
+        "min": 4028.6,
+        "max": 12613.8,
+        "median": 6072.4,
+        "p95": 9784.6,
+        "p99": 12613.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 27,
+        "302": 60,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 20,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:16:44.173Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 113,
+      "latency": {
+        "min": 91.6,
+        "max": 11957.7,
+        "median": 1068,
+        "p95": 6904.3,
+        "p99": 9922.3
+      },
+      "rps": {
+        "count": 111,
+        "mean": 11.13
+      },
+      "scenarioDuration": {
+        "min": 3452.8,
+        "max": 13660,
+        "median": 5667,
+        "p95": 10295,
+        "p99": 13660
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 28,
+        "302": 82,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:16:54.180Z",
+      "scenariosCreated": 29,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 104,
+      "latency": {
+        "min": 42.2,
+        "max": 7534.8,
+        "median": 1081.1,
+        "p95": 5723.3,
+        "p99": 7144.3
+      },
+      "rps": {
+        "count": 102,
+        "mean": 10.23
+      },
+      "scenarioDuration": {
+        "min": 3826.5,
+        "max": 9280.8,
+        "median": 6130.4,
+        "p95": 8514.8,
+        "p99": 9280.8
+      },
+      "scenarioCounts": {
+        "0": 29
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1,
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 74,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 18
+    },
+    {
+      "timestamp": "2019-06-13T19:17:04.183Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 88,
+      "latency": {
+        "min": 308.1,
+        "max": 9421.8,
+        "median": 1084,
+        "p95": 5009.5,
+        "p99": 8059
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.11
+      },
+      "scenarioDuration": {
+        "min": 3546.6,
+        "max": 11308.4,
+        "median": 5500.8,
+        "p95": 8034.4,
+        "p99": 11308.4
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {},
+      "codes": {
+        "200": 27,
+        "302": 60,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:17:14.187Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 90,
+      "latency": {
+        "min": 309.4,
+        "max": 9099.1,
+        "median": 1087.5,
+        "p95": 6382,
+        "p99": 8759.1
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.09
+      },
+      "scenarioDuration": {
+        "min": 3232.1,
+        "max": 10827.4,
+        "median": 5590.2,
+        "p95": 10008.3,
+        "p99": 10827.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 25,
+        "302": 60,
+        "500": 5
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:17:24.188Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 33,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 313.7,
+        "max": 13192.1,
+        "median": 1110.6,
+        "p95": 4520.1,
+        "p99": 10937.8
+      },
+      "rps": {
+        "count": 89,
+        "mean": 9.12
+      },
+      "scenarioDuration": {
+        "min": 3677.9,
+        "max": 14766.1,
+        "median": 5105.7,
+        "p95": 9184.1,
+        "p99": 14766.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 32,
+        "302": 59
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:17:34.193Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 88,
+      "latency": {
+        "min": 294.3,
+        "max": 6223,
+        "median": 1088.3,
+        "p95": 4354.9,
+        "p99": 5763.1
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.3
+      },
+      "scenarioDuration": {
+        "min": 2854.7,
+        "max": 8127.1,
+        "median": 5099.8,
+        "p95": 7055.5,
+        "p99": 8127.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 24,
+        "302": 61,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:17:44.202Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 103,
+      "latency": {
+        "min": 89,
+        "max": 13926.4,
+        "median": 1079.8,
+        "p95": 4808.9,
+        "p99": 13505
+      },
+      "rps": {
+        "count": 99,
+        "mean": 10.1
+      },
+      "scenarioDuration": {
+        "min": 3063.5,
+        "max": 15904.6,
+        "median": 5014.2,
+        "p95": 14403,
+        "p99": 15904.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 28,
+        "302": 70,
+        "500": 5
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 18
+    },
+    {
+      "timestamp": "2019-06-13T19:17:54.205Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 294.2,
+        "max": 5573,
+        "median": 1076.8,
+        "p95": 4023.5,
+        "p99": 5307.2
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.84
+      },
+      "scenarioDuration": {
+        "min": 2962.7,
+        "max": 7197.7,
+        "median": 4792.1,
+        "p95": 6759.4,
+        "p99": 7197.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 27,
+        "302": 58,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:18:04.208Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 99,
+      "latency": {
+        "min": 98.1,
+        "max": 6621.2,
+        "median": 1077,
+        "p95": 5054.6,
+        "p99": 6285.1
+      },
+      "rps": {
+        "count": 101,
+        "mean": 10.3
+      },
+      "scenarioDuration": {
+        "min": 3918.7,
+        "max": 8314.7,
+        "median": 5371.2,
+        "p95": 7638,
+        "p99": 8314.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 72
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:18:14.214Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 86,
+      "latency": {
+        "min": 304.4,
+        "max": 7014.4,
+        "median": 1083.2,
+        "p95": 5120.6,
+        "p99": 6925.7
+      },
+      "rps": {
+        "count": 87,
+        "mean": 8.87
+      },
+      "scenarioDuration": {
+        "min": 3655.5,
+        "max": 8809.3,
+        "median": 4845.3,
+        "p95": 8679.3,
+        "p99": 8809.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 57,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:18:24.216Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 97,
+      "latency": {
+        "min": 90,
+        "max": 60433.3,
+        "median": 1165,
+        "p95": 5071.5,
+        "p99": 34888.3
+      },
+      "rps": {
+        "count": 95,
+        "mean": 9.51
+      },
+      "scenarioDuration": {
+        "min": 3143.3,
+        "max": 61913.9,
+        "median": 5210.2,
+        "p95": 7743.7,
+        "p99": 61913.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 65,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:18:34.218Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 96,
+      "latency": {
+        "min": 87.7,
+        "max": 13274.8,
+        "median": 1073.9,
+        "p95": 5537.5,
+        "p99": 13063.6
+      },
+      "rps": {
+        "count": 96,
+        "mean": 9.73
+      },
+      "scenarioDuration": {
+        "min": 2762.3,
+        "max": 14875.7,
+        "median": 4706.7,
+        "p95": 14500.5,
+        "p99": 14875.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 67,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:18:44.220Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 109,
+      "latency": {
+        "min": 89.1,
+        "max": 9541.4,
+        "median": 1067.1,
+        "p95": 4696.9,
+        "p99": 7046.2
+      },
+      "rps": {
+        "count": 106,
+        "mean": 10.79
+      },
+      "scenarioDuration": {
+        "min": 3694.1,
+        "max": 11124.6,
+        "median": 4803.8,
+        "p95": 7338.9,
+        "p99": 11124.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 30,
+        "302": 78,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 17
+    },
+    {
+      "timestamp": "2019-06-13T19:18:54.227Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 24,
+      "requestsCompleted": 93,
+      "latency": {
+        "min": 107.3,
+        "max": 5509.7,
+        "median": 1070.8,
+        "p95": 4699.1,
+        "p99": 5258
+      },
+      "rps": {
+        "count": 97,
+        "mean": 9.95
+      },
+      "scenarioDuration": {
+        "min": 3539.4,
+        "max": 7198.5,
+        "median": 4796.6,
+        "p95": 6846.6,
+        "p99": 7198.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 25,
+        "302": 68
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:19:04.230Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 120,
+      "latency": {
+        "min": 80.8,
+        "max": 9158.8,
+        "median": 1055.1,
+        "p95": 5130.6,
+        "p99": 6938.3
+      },
+      "rps": {
+        "count": 119,
+        "mean": 11.91
+      },
+      "scenarioDuration": {
+        "min": 3051.2,
+        "max": 10751.3,
+        "median": 5330.2,
+        "p95": 8041.5,
+        "p99": 10751.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 3
+      },
+      "codes": {
+        "200": 26,
+        "302": 92,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:19:14.233Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 35,
+      "requestsCompleted": 97,
+      "latency": {
+        "min": 313.7,
+        "max": 8194.4,
+        "median": 1084.4,
+        "p95": 4203.5,
+        "p99": 7825.8
+      },
+      "rps": {
+        "count": 92,
+        "mean": 9.35
+      },
+      "scenarioDuration": {
+        "min": 2955.7,
+        "max": 9828.6,
+        "median": 4590.2,
+        "p95": 8889.4,
+        "p99": 9828.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 30,
+        "302": 62,
+        "500": 5
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 12,
+      "pendingRequests": 15
+    },
+    {
+      "timestamp": "2019-06-13T19:19:24.235Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 22,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 85.5,
+        "max": 5188.6,
+        "median": 1066.5,
+        "p95": 4068.3,
+        "p99": 4901.4
+      },
+      "rps": {
+        "count": 100,
+        "mean": 10.16
+      },
+      "scenarioDuration": {
+        "min": 3657.7,
+        "max": 6818.6,
+        "median": 4667.8,
+        "p95": 6394.5,
+        "p99": 6818.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 21,
+        "302": 71
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 23
+    },
+    {
+      "timestamp": "2019-06-13T19:19:34.243Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 100,
+      "latency": {
+        "min": 103.6,
+        "max": 10212.4,
+        "median": 1093.7,
+        "p95": 5547.6,
+        "p99": 9378.2
+      },
+      "rps": {
+        "count": 97,
+        "mean": 9.85
+      },
+      "scenarioDuration": {
+        "min": 3671.9,
+        "max": 11820.9,
+        "median": 5226.2,
+        "p95": 10049.8,
+        "p99": 11820.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 68,
+        "500": 5
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:19:44.246Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 309.9,
+        "max": 7524.9,
+        "median": 1074.4,
+        "p95": 5642.6,
+        "p99": 7384.4
+      },
+      "rps": {
+        "count": 89,
+        "mean": 8.98
+      },
+      "scenarioDuration": {
+        "min": 2970.5,
+        "max": 9328.3,
+        "median": 4645.8,
+        "p95": 8823.1,
+        "p99": 9328.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 29,
+        "302": 59,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 18
+    },
+    {
+      "timestamp": "2019-06-13T19:19:54.250Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 304.9,
+        "max": 7775.3,
+        "median": 1090.4,
+        "p95": 4174.7,
+        "p99": 7523.2
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.14
+      },
+      "scenarioDuration": {
+        "min": 2990.4,
+        "max": 9357.3,
+        "median": 4601.8,
+        "p95": 8503.9,
+        "p99": 9357.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 30,
+        "302": 60,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 12,
+      "pendingRequests": 16
+    },
+    {
+      "timestamp": "2019-06-13T19:20:04.279Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 23,
+      "requestsCompleted": 104,
+      "latency": {
+        "min": 88.3,
+        "max": 5605.6,
+        "median": 1060.4,
+        "p95": 3233.7,
+        "p99": 4957.4
+      },
+      "rps": {
+        "count": 108,
+        "mean": 10.93
+      },
+      "scenarioDuration": {
+        "min": 3520.6,
+        "max": 7200.3,
+        "median": 4311.5,
+        "p95": 6488.1,
+        "p99": 7200.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 24,
+        "302": 80
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:20:14.287Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 102,
+      "latency": {
+        "min": 92.4,
+        "max": 14516.1,
+        "median": 1080,
+        "p95": 5403.9,
+        "p99": 12521.3
+      },
+      "rps": {
+        "count": 99,
+        "mean": 9.9
+      },
+      "scenarioDuration": {
+        "min": 2984.1,
+        "max": 16235.3,
+        "median": 4711.9,
+        "p95": 11898.3,
+        "p99": 16235.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 30,
+        "302": 70,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 17
+    },
+    {
+      "timestamp": "2019-06-13T19:20:24.288Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 93,
+      "latency": {
+        "min": 86.3,
+        "max": 12954.1,
+        "median": 1068.6,
+        "p95": 5293.1,
+        "p99": 10472.6
+      },
+      "rps": {
+        "count": 96,
+        "mean": 9.6
+      },
+      "scenarioDuration": {
+        "min": 3494.8,
+        "max": 15059.2,
+        "median": 5988.2,
+        "p95": 10095.1,
+        "p99": 15059.2
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 25,
+        "302": 66,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:20:34.292Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 115,
+      "latency": {
+        "min": 78.7,
+        "max": 9276.8,
+        "median": 1064.3,
+        "p95": 4894.8,
+        "p99": 8464.6
+      },
+      "rps": {
+        "count": 115,
+        "mean": 11.55
+      },
+      "scenarioDuration": {
+        "min": 3515.7,
+        "max": 10978.3,
+        "median": 4669.4,
+        "p95": 7756.9,
+        "p99": 10978.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 3
+      },
+      "codes": {
+        "200": 27,
+        "302": 88
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:20:44.295Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 99,
+      "latency": {
+        "min": 95.8,
+        "max": 8115.7,
+        "median": 1079.6,
+        "p95": 6039.2,
+        "p99": 7808.9
+      },
+      "rps": {
+        "count": 98,
+        "mean": 9.82
+      },
+      "scenarioDuration": {
+        "min": 2990.1,
+        "max": 9736.1,
+        "median": 5374.2,
+        "p95": 9136.2,
+        "p99": 9736.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 28,
+        "302": 69,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:20:54.297Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 89,
+      "latency": {
+        "min": 312.4,
+        "max": 6604,
+        "median": 1083.8,
+        "p95": 4416.5,
+        "p99": 6458.3
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.16
+      },
+      "scenarioDuration": {
+        "min": 3511.2,
+        "max": 8192.8,
+        "median": 4789.1,
+        "p95": 7973.4,
+        "p99": 8192.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 60,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:21:04.301Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 306.5,
+        "max": 9261.7,
+        "median": 1080.3,
+        "p95": 4691.4,
+        "p99": 7751.1
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.1
+      },
+      "scenarioDuration": {
+        "min": 3225.5,
+        "max": 10929.2,
+        "median": 4915,
+        "p95": 7546.7,
+        "p99": 10929.2
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 29,
+        "302": 60,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:21:14.380Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 89,
+      "latency": {
+        "min": 321.9,
+        "max": 6649.5,
+        "median": 1157.6,
+        "p95": 3700.4,
+        "p99": 5788.3
+      },
+      "rps": {
+        "count": 87,
+        "mean": 8.71
+      },
+      "scenarioDuration": {
+        "min": 3017,
+        "max": 8264.2,
+        "median": 4920.3,
+        "p95": 6111.1,
+        "p99": 8264.2
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 57,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 17
+    },
+    {
+      "timestamp": "2019-06-13T19:21:24.381Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 86,
+      "latency": {
+        "min": 312.5,
+        "max": 7111.5,
+        "median": 1087.7,
+        "p95": 4000.8,
+        "p99": 6359.1
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.81
+      },
+      "scenarioDuration": {
+        "min": 3319.4,
+        "max": 9040,
+        "median": 4951.4,
+        "p95": 7049.6,
+        "p99": 9040
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 27,
+        "302": 58,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:21:34.447Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 99,
+      "latency": {
+        "min": 92,
+        "max": 14400.3,
+        "median": 1075.9,
+        "p95": 4304.7,
+        "p99": 10243
+      },
+      "rps": {
+        "count": 101,
+        "mean": 10.04
+      },
+      "scenarioDuration": {
+        "min": 3832.9,
+        "max": 16149.3,
+        "median": 5126.8,
+        "p95": 8933.3,
+        "p99": 16149.3
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 72
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:21:44.450Z",
+      "scenariosCreated": 29,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 98,
+      "latency": {
+        "min": 103.2,
+        "max": 14111.4,
+        "median": 1080.5,
+        "p95": 5262.2,
+        "p99": 10228.7
+      },
+      "rps": {
+        "count": 98,
+        "mean": 9.8
+      },
+      "scenarioDuration": {
+        "min": 3802.6,
+        "max": 15690.3,
+        "median": 5051.2,
+        "p95": 8620.9,
+        "p99": 15690.3
+      },
+      "scenarioCounts": {
+        "0": 29
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 69
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:21:54.455Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 33,
+      "requestsCompleted": 94,
+      "latency": {
+        "min": 307.7,
+        "max": 13182.1,
+        "median": 1134.2,
+        "p95": 5036.8,
+        "p99": 11048.3
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.15
+      },
+      "scenarioDuration": {
+        "min": 3297.4,
+        "max": 15208.9,
+        "median": 5193.5,
+        "p95": 9968.2,
+        "p99": 15208.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 60,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 17
+    },
+    {
+      "timestamp": "2019-06-13T19:22:04.463Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 23,
+      "requestsCompleted": 97,
+      "latency": {
+        "min": 63.1,
+        "max": 7587.6,
+        "median": 1071.7,
+        "p95": 5248.6,
+        "p99": 6940.6
+      },
+      "rps": {
+        "count": 103,
+        "mean": 10.38
+      },
+      "scenarioDuration": {
+        "min": 3825.1,
+        "max": 9466.5,
+        "median": 5400.5,
+        "p95": 8576.5,
+        "p99": 9466.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1,
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 23,
+        "302": 74
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 23
+    },
+    {
+      "timestamp": "2019-06-13T19:22:14.466Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 33,
+      "requestsCompleted": 104,
+      "latency": {
+        "min": 134.4,
+        "max": 7470.6,
+        "median": 1112.9,
+        "p95": 5243.9,
+        "p99": 7150
+      },
+      "rps": {
+        "count": 101,
+        "mean": 10.41
+      },
+      "scenarioDuration": {
+        "min": 3259.1,
+        "max": 9142.8,
+        "median": 5067.5,
+        "p95": 8453.1,
+        "p99": 9142.8
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 31,
+        "302": 71,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:22:24.470Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 101,
+      "latency": {
+        "min": 98.4,
+        "max": 4553.9,
+        "median": 1091.9,
+        "p95": 4300.1,
+        "p99": 4549.2
+      },
+      "rps": {
+        "count": 100,
+        "mean": 10.11
+      },
+      "scenarioDuration": {
+        "min": 3570.1,
+        "max": 6591,
+        "median": 4937.1,
+        "p95": 6464.6,
+        "p99": 6591
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 71,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:22:34.472Z",
+      "scenariosCreated": 29,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 306.2,
+        "max": 12104.7,
+        "median": 1090.3,
+        "p95": 6243.2,
+        "p99": 10239.9
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.97
+      },
+      "scenarioDuration": {
+        "min": 3552.2,
+        "max": 14056.5,
+        "median": 5447,
+        "p95": 9240.2,
+        "p99": 14056.5
+      },
+      "scenarioCounts": {
+        "0": 29
+      },
+      "errors": {},
+      "codes": {
+        "200": 24,
+        "302": 59,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:22:44.478Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 101,
+      "latency": {
+        "min": 103,
+        "max": 8703.6,
+        "median": 1069.2,
+        "p95": 5383.3,
+        "p99": 7566.8
+      },
+      "rps": {
+        "count": 103,
+        "mean": 10.32
+      },
+      "scenarioDuration": {
+        "min": 3247.3,
+        "max": 10447.1,
+        "median": 5034.1,
+        "p95": 8508,
+        "p99": 10447.1
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 23,
+        "302": 73,
+        "500": 5
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:22:54.540Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 103,
+      "latency": {
+        "min": 78.7,
+        "max": 11740.6,
+        "median": 1074,
+        "p95": 6567.5,
+        "p99": 10861.8
+      },
+      "rps": {
+        "count": 102,
+        "mean": 10.15
+      },
+      "scenarioDuration": {
+        "min": 3571.3,
+        "max": 13600.4,
+        "median": 5478.3,
+        "p95": 11855.3,
+        "p99": 13600.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 73,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:23:04.542Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 96,
+      "latency": {
+        "min": 110.1,
+        "max": 7863.9,
+        "median": 1087.6,
+        "p95": 4636.4,
+        "p99": 6797.4
+      },
+      "rps": {
+        "count": 95,
+        "mean": 9.5
+      },
+      "scenarioDuration": {
+        "min": 3625.5,
+        "max": 9834.6,
+        "median": 5209.3,
+        "p95": 7682.9,
+        "p99": 9834.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 30,
+        "302": 66
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:23:14.546Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 99,
+      "latency": {
+        "min": 113.5,
+        "max": 9188.2,
+        "median": 1090.9,
+        "p95": 4335.9,
+        "p99": 7636.1
+      },
+      "rps": {
+        "count": 99,
+        "mean": 10.2
+      },
+      "scenarioDuration": {
+        "min": 3166.1,
+        "max": 10814.4,
+        "median": 5030.1,
+        "p95": 7945.1,
+        "p99": 10814.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 70,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:23:24.549Z",
+      "scenariosCreated": 29,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 109.5,
+        "max": 18549.4,
+        "median": 1122.7,
+        "p95": 3465.4,
+        "p99": 12778.5
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.17
+      },
+      "scenarioDuration": {
+        "min": 3307.5,
+        "max": 20497.9,
+        "median": 4460.7,
+        "p95": 6430.9,
+        "p99": 20497.9
+      },
+      "scenarioCounts": {
+        "0": 29
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 62,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:23:34.621Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 102,
+      "latency": {
+        "min": 93.5,
+        "max": 11457.9,
+        "median": 1085,
+        "p95": 6030.1,
+        "p99": 10457.5
+      },
+      "rps": {
+        "count": 102,
+        "mean": 10.15
+      },
+      "scenarioDuration": {
+        "min": 3303.9,
+        "max": 13308.1,
+        "median": 4929.8,
+        "p95": 11383.4,
+        "p99": 13308.1
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 26,
+        "302": 72,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:23:44.686Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 89,
+      "latency": {
+        "min": 337.2,
+        "max": 5095.3,
+        "median": 1131.9,
+        "p95": 3593.4,
+        "p99": 4741.4
+      },
+      "rps": {
+        "count": 89,
+        "mean": 8.85
+      },
+      "scenarioDuration": {
+        "min": 3249.6,
+        "max": 6820,
+        "median": 4486.6,
+        "p95": 6093.2,
+        "p99": 6820
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 29,
+        "302": 59,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:23:54.690Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 89,
+      "latency": {
+        "min": 320.4,
+        "max": 6450.9,
+        "median": 1092,
+        "p95": 5096.9,
+        "p99": 6235.6
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.89
+      },
+      "scenarioDuration": {
+        "min": 3726.5,
+        "max": 8506.5,
+        "median": 5355.6,
+        "p95": 7725.4,
+        "p99": 8506.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 58
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:24:04.693Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 314.4,
+        "max": 6080.8,
+        "median": 1085.6,
+        "p95": 4186.5,
+        "p99": 5605.3
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.07
+      },
+      "scenarioDuration": {
+        "min": 3184.7,
+        "max": 7990.9,
+        "median": 4924.5,
+        "p95": 6877.9,
+        "p99": 7990.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 26,
+        "302": 60,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:24:14.695Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 314.4,
+        "max": 9671.6,
+        "median": 1089.6,
+        "p95": 5570.5,
+        "p99": 9277.3
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.02
+      },
+      "scenarioDuration": {
+        "min": 3210.1,
+        "max": 11313,
+        "median": 5343.3,
+        "p95": 10667.6,
+        "p99": 11313
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 27,
+        "302": 60,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 21
+    },
+    {
+      "timestamp": "2019-06-13T19:24:24.700Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 97,
+      "latency": {
+        "min": 105.5,
+        "max": 6513.2,
+        "median": 1089.1,
+        "p95": 3640.5,
+        "p99": 6005.8
+      },
+      "rps": {
+        "count": 98,
+        "mean": 9.82
+      },
+      "scenarioDuration": {
+        "min": 3147.6,
+        "max": 8140.3,
+        "median": 4821.5,
+        "p95": 7044.3,
+        "p99": 8140.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 24,
+        "302": 69,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:24:34.702Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 285.1,
+        "max": 11107.5,
+        "median": 1094.6,
+        "p95": 3963.4,
+        "p99": 8675.8
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.82
+      },
+      "scenarioDuration": {
+        "min": 3232.2,
+        "max": 12897.6,
+        "median": 4710.9,
+        "p95": 6981.9,
+        "p99": 12897.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 32,
+        "302": 58,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 19
+    },
+    {
+      "timestamp": "2019-06-13T19:24:44.703Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 86,
+      "latency": {
+        "min": 298.2,
+        "max": 6215.9,
+        "median": 1084.1,
+        "p95": 5334.6,
+        "p99": 6116.6
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.07
+      },
+      "scenarioDuration": {
+        "min": 3703.1,
+        "max": 8195.9,
+        "median": 4969.7,
+        "p95": 7666,
+        "p99": 8195.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 26,
+        "302": 60
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 23
+    },
+    {
+      "timestamp": "2019-06-13T19:24:54.705Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 102,
+      "latency": {
+        "min": 50.4,
+        "max": 6530.3,
+        "median": 1081.4,
+        "p95": 4562.7,
+        "p99": 6377.9
+      },
+      "rps": {
+        "count": 101,
+        "mean": 10.11
+      },
+      "scenarioDuration": {
+        "min": 3512,
+        "max": 8257.2,
+        "median": 4875.6,
+        "p95": 8252.6,
+        "p99": 8257.2
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1,
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 72,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:25:04.707Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 98,
+      "latency": {
+        "min": 86.1,
+        "max": 5004,
+        "median": 1100.1,
+        "p95": 3620.9,
+        "p99": 4852.9
+      },
+      "rps": {
+        "count": 98,
+        "mean": 9.87
+      },
+      "scenarioDuration": {
+        "min": 3751.4,
+        "max": 6719.3,
+        "median": 4755.5,
+        "p95": 6290.6,
+        "p99": 6719.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 28,
+        "302": 69,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:25:14.752Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 89,
+      "latency": {
+        "min": 322.2,
+        "max": 6623.3,
+        "median": 1098.9,
+        "p95": 5731,
+        "p99": 6436.7
+      },
+      "rps": {
+        "count": 90,
+        "mean": 8.97
+      },
+      "scenarioDuration": {
+        "min": 4012.7,
+        "max": 8612.3,
+        "median": 6074.8,
+        "p95": 7849.4,
+        "p99": 8612.3
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {},
+      "codes": {
+        "200": 25,
+        "302": 60,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 23
+    },
+    {
+      "timestamp": "2019-06-13T19:25:24.757Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 88,
+      "latency": {
+        "min": 305.4,
+        "max": 11188.8,
+        "median": 1104.5,
+        "p95": 6551.5,
+        "p99": 9881.7
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.03
+      },
+      "scenarioDuration": {
+        "min": 3034.8,
+        "max": 13093.7,
+        "median": 4954.8,
+        "p95": 9667.3,
+        "p99": 13093.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 59,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 25
+    },
+    {
+      "timestamp": "2019-06-13T19:25:34.768Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 113,
+      "latency": {
+        "min": 85.4,
+        "max": 14523.7,
+        "median": 1068.1,
+        "p95": 4284.2,
+        "p99": 12753
+      },
+      "rps": {
+        "count": 110,
+        "mean": 11.02
+      },
+      "scenarioDuration": {
+        "min": 3575.4,
+        "max": 16226.9,
+        "median": 4799.2,
+        "p95": 13555.5,
+        "p99": 16226.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 29,
+        "302": 83,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 22
+    },
+    {
+      "timestamp": "2019-06-13T19:25:44.773Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 171.6,
+        "max": 13695.3,
+        "median": 1088.2,
+        "p95": 3270.2,
+        "p99": 13214.8
+      },
+      "rps": {
+        "count": 94,
+        "mean": 9.49
+      },
+      "scenarioDuration": {
+        "min": 3148.5,
+        "max": 15281.9,
+        "median": 4444.3,
+        "p95": 14398.6,
+        "p99": 15281.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 26,
+        "302": 63,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 24
+    },
+    {
+      "timestamp": "2019-06-13T19:25:54.801Z",
+      "scenariosCreated": 29,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 99,
+      "latency": {
+        "min": 111.5,
+        "max": 9968.3,
+        "median": 1074.5,
+        "p95": 4090.3,
+        "p99": 9078.8
+      },
+      "rps": {
+        "count": 95,
+        "mean": 9.49
+      },
+      "scenarioDuration": {
+        "min": 3567.7,
+        "max": 11725.5,
+        "median": 4514.2,
+        "p95": 9815.3,
+        "p99": 11725.5
+      },
+      "scenarioCounts": {
+        "0": 29
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 30,
+        "302": 67,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 12,
+      "pendingRequests": 20
+    },
+    {
+      "timestamp": "2019-06-13T19:26:04.806Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 85,
+      "latency": {
+        "min": 305.8,
+        "max": 4865.3,
+        "median": 1070.7,
+        "p95": 3813.3,
+        "p99": 4817.9
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.01
+      },
+      "scenarioDuration": {
+        "min": 3008.2,
+        "max": 6626.9,
+        "median": 4658,
+        "p95": 6444.3,
+        "p99": 6626.9
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {},
+      "codes": {
+        "200": 25,
+        "302": 59,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 25
+    },
+    {
+      "timestamp": "2019-06-13T19:26:14.828Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 93,
+      "latency": {
+        "min": 66,
+        "max": 6694.7,
+        "median": 1088.6,
+        "p95": 4873.5,
+        "p99": 6650.3
+      },
+      "rps": {
+        "count": 92,
+        "mean": 9.25
+      },
+      "scenarioDuration": {
+        "min": 3239.3,
+        "max": 8337,
+        "median": 5439.6,
+        "p95": 8294.6,
+        "p99": 8337
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 62,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 24
+    },
+    {
+      "timestamp": "2019-06-13T19:26:24.830Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 42,
+        "max": 7010.2,
+        "median": 1094.5,
+        "p95": 4199.6,
+        "p99": 6201.4
+      },
+      "rps": {
+        "count": 94,
+        "mean": 9.54
+      },
+      "scenarioDuration": {
+        "min": 3327.6,
+        "max": 8644.9,
+        "median": 4876.4,
+        "p95": 6688.8,
+        "p99": 8644.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 28,
+        "302": 64
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 26
+    },
+    {
+      "timestamp": "2019-06-13T19:26:34.832Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 290.5,
+        "max": 8679.2,
+        "median": 1075.2,
+        "p95": 4500.9,
+        "p99": 7555.1
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.05
+      },
+      "scenarioDuration": {
+        "min": 3538.8,
+        "max": 10281.7,
+        "median": 4972.8,
+        "p95": 7536.4,
+        "p99": 10281.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 60
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 25
+    },
+    {
+      "timestamp": "2019-06-13T19:26:44.835Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 90,
+      "latency": {
+        "min": 296.1,
+        "max": 6337.9,
+        "median": 1105.3,
+        "p95": 4751.5,
+        "p99": 6248.6
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.87
+      },
+      "scenarioDuration": {
+        "min": 3568.2,
+        "max": 8183.7,
+        "median": 4943.3,
+        "p95": 7747.7,
+        "p99": 8183.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 32,
+        "302": 58
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 23
+    },
+    {
+      "timestamp": "2019-06-13T19:26:54.838Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 86,
+      "latency": {
+        "min": 299.3,
+        "max": 5598.8,
+        "median": 1077.2,
+        "p95": 4196.3,
+        "p99": 5305.9
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.02
+      },
+      "scenarioDuration": {
+        "min": 2992.3,
+        "max": 7433,
+        "median": 4594.2,
+        "p95": 6627.5,
+        "p99": 7433
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 25,
+        "302": 60,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 27
+    },
+    {
+      "timestamp": "2019-06-13T19:27:04.842Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 109,
+      "latency": {
+        "min": 82.1,
+        "max": 14625.6,
+        "median": 1063.3,
+        "p95": 3694.8,
+        "p99": 13553.5
+      },
+      "rps": {
+        "count": 108,
+        "mean": 10.83
+      },
+      "scenarioDuration": {
+        "min": 3369,
+        "max": 16191.6,
+        "median": 4777.2,
+        "p95": 14605.2,
+        "p99": 16191.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 27,
+        "302": 80,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 26
+    },
+    {
+      "timestamp": "2019-06-13T19:27:14.850Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 122,
+      "latency": {
+        "min": 95.8,
+        "max": 8796.7,
+        "median": 925.1,
+        "p95": 4289.8,
+        "p99": 7445
+      },
+      "rps": {
+        "count": 119,
+        "mean": 11.98
+      },
+      "scenarioDuration": {
+        "min": 3025.2,
+        "max": 10478.4,
+        "median": 4649.2,
+        "p95": 8628.8,
+        "p99": 10478.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 3
+      },
+      "codes": {
+        "200": 27,
+        "302": 92,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 23
+    },
+    {
+      "timestamp": "2019-06-13T19:27:24.858Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 28.2,
+        "max": 5897.3,
+        "median": 1059.5,
+        "p95": 4509.6,
+        "p99": 5528.4
+      },
+      "rps": {
+        "count": 92,
+        "mean": 9.23
+      },
+      "scenarioDuration": {
+        "min": 1462.1,
+        "max": 7557.7,
+        "median": 3831.9,
+        "p95": 6616.5,
+        "p99": 7557.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 12,
+        "302": 59,
+        "500": 12,
+        "502": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 28
+    },
+    {
+      "timestamp": "2019-06-13T19:27:34.860Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 307.6,
+        "max": 13236.8,
+        "median": 1108.1,
+        "p95": 5987.5,
+        "p99": 12317.6
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.07
+      },
+      "scenarioDuration": {
+        "min": 2989,
+        "max": 14788.2,
+        "median": 5137.4,
+        "p95": 12582.1,
+        "p99": 14788.2
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 30,
+        "302": 60,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 26
+    },
+    {
+      "timestamp": "2019-06-13T19:27:44.864Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 24,
+      "requestsCompleted": 84,
+      "latency": {
+        "min": 296.7,
+        "max": 6612.8,
+        "median": 1072.1,
+        "p95": 3672.9,
+        "p99": 6016.8
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.15
+      },
+      "scenarioDuration": {
+        "min": 3488.5,
+        "max": 8386.3,
+        "median": 4494.9,
+        "p95": 7032.4,
+        "p99": 8386.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 23,
+        "302": 61
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 23,
+      "pendingRequests": 33
+    },
+    {
+      "timestamp": "2019-06-13T19:27:54.866Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 33,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 293.4,
+        "max": 14102.5,
+        "median": 1098,
+        "p95": 9479.8,
+        "p99": 13149.3
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.96
+      },
+      "scenarioDuration": {
+        "min": 3457.9,
+        "max": 15699.1,
+        "median": 4877.5,
+        "p95": 13383.9,
+        "p99": 15699.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 58,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 20,
+      "pendingRequests": 30
+    },
+    {
+      "timestamp": "2019-06-13T19:28:04.872Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 93,
+      "latency": {
+        "min": 298.9,
+        "max": 11227.3,
+        "median": 1095,
+        "p95": 5728.7,
+        "p99": 10511.2
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.11
+      },
+      "scenarioDuration": {
+        "min": 3567,
+        "max": 12977,
+        "median": 5435.9,
+        "p95": 11247.8,
+        "p99": 12977
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 32,
+        "302": 61
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 18,
+      "pendingRequests": 28
+    },
+    {
+      "timestamp": "2019-06-13T19:28:14.881Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 86,
+      "latency": {
+        "min": 286.2,
+        "max": 14452.1,
+        "median": 1087,
+        "p95": 5380.9,
+        "p99": 13253.7
+      },
+      "rps": {
+        "count": 89,
+        "mean": 8.94
+      },
+      "scenarioDuration": {
+        "min": 3106.1,
+        "max": 16020.7,
+        "median": 4788.9,
+        "p95": 13318.8,
+        "p99": 16020.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 25,
+        "302": 59,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 21,
+      "pendingRequests": 31
+    },
+    {
+      "timestamp": "2019-06-13T19:28:24.888Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 89,
+      "latency": {
+        "min": 289.7,
+        "max": 15457.2,
+        "median": 1141.9,
+        "p95": 5885.7,
+        "p99": 14077.2
+      },
+      "rps": {
+        "count": 92,
+        "mean": 9.2
+      },
+      "scenarioDuration": {
+        "min": 3015.4,
+        "max": 17042.7,
+        "median": 5604.4,
+        "p95": 14139.2,
+        "p99": 17042.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 26,
+        "302": 62,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 24,
+      "pendingRequests": 34
+    },
+    {
+      "timestamp": "2019-06-13T19:28:34.891Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 34,
+      "requestsCompleted": 105,
+      "latency": {
+        "min": 83.7,
+        "max": 8875.6,
+        "median": 1093.5,
+        "p95": 4933.6,
+        "p99": 7145.6
+      },
+      "rps": {
+        "count": 100,
+        "mean": 10.15
+      },
+      "scenarioDuration": {
+        "min": 2938.2,
+        "max": 10779.7,
+        "median": 4707.2,
+        "p95": 7884.3,
+        "p99": 10779.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 32,
+        "302": 71,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 29
+    },
+    {
+      "timestamp": "2019-06-13T19:28:44.895Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 288.7,
+        "max": 7553.7,
+        "median": 1079.4,
+        "p95": 5107.6,
+        "p99": 7551.3
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.93
+      },
+      "scenarioDuration": {
+        "min": 3598,
+        "max": 9227.3,
+        "median": 5116.6,
+        "p95": 9143.5,
+        "p99": 9227.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 58,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 21,
+      "pendingRequests": 30
+    },
+    {
+      "timestamp": "2019-06-13T19:28:54.902Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 98,
+      "latency": {
+        "min": 106.1,
+        "max": 9432.2,
+        "median": 1070.8,
+        "p95": 5041.7,
+        "p99": 7658.7
+      },
+      "rps": {
+        "count": 98,
+        "mean": 10.18
+      },
+      "scenarioDuration": {
+        "min": 3275.1,
+        "max": 10977.3,
+        "median": 5516.3,
+        "p95": 7452,
+        "p99": 10977.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 27,
+        "302": 69,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 20,
+      "pendingRequests": 30
+    },
+    {
+      "timestamp": "2019-06-13T19:29:04.904Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 90,
+      "latency": {
+        "min": 310.4,
+        "max": 7439.2,
+        "median": 1095.6,
+        "p95": 5148.3,
+        "p99": 7287.4
+      },
+      "rps": {
+        "count": 92,
+        "mean": 9.25
+      },
+      "scenarioDuration": {
+        "min": 2933.4,
+        "max": 9312.1,
+        "median": 4685.7,
+        "p95": 8831.8,
+        "p99": 9312.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 24,
+        "302": 62,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 22,
+      "pendingRequests": 32
+    },
+    {
+      "timestamp": "2019-06-13T19:29:14.909Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 307.1,
+        "max": 10939.7,
+        "median": 1114.6,
+        "p95": 4767.4,
+        "p99": 9942.3
+      },
+      "rps": {
+        "count": 89,
+        "mean": 9.02
+      },
+      "scenarioDuration": {
+        "min": 3176.9,
+        "max": 12537.5,
+        "median": 5124.7,
+        "p95": 10282.5,
+        "p99": 12537.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 59,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 29
+    },
+    {
+      "timestamp": "2019-06-13T19:29:24.911Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 84,
+      "latency": {
+        "min": 306.4,
+        "max": 60574.8,
+        "median": 1089.5,
+        "p95": 4922.8,
+        "p99": 42054.6
+      },
+      "rps": {
+        "count": 84,
+        "mean": 8.51
+      },
+      "scenarioDuration": {
+        "min": 3635.3,
+        "max": 62004.5,
+        "median": 4631.6,
+        "p95": 13235.3,
+        "p99": 62004.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "ESOCKETTIMEDOUT": 3
+      },
+      "codes": {
+        "200": 29,
+        "302": 54,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 29
+    },
+    {
+      "timestamp": "2019-06-13T19:29:34.913Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 90,
+      "latency": {
+        "min": 303.5,
+        "max": 13725.7,
+        "median": 1094.3,
+        "p95": 6858.3,
+        "p99": 13641
+      },
+      "rps": {
+        "count": 89,
+        "mean": 9.02
+      },
+      "scenarioDuration": {
+        "min": 3649.5,
+        "max": 15486.2,
+        "median": 5915.7,
+        "p95": 15204.2,
+        "p99": 15486.2
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 31,
+        "302": 59
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 28
+    },
+    {
+      "timestamp": "2019-06-13T19:29:44.917Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 101,
+      "latency": {
+        "min": 58.5,
+        "max": 7949.3,
+        "median": 1084,
+        "p95": 4779.6,
+        "p99": 7173.9
+      },
+      "rps": {
+        "count": 101,
+        "mean": 10.29
+      },
+      "scenarioDuration": {
+        "min": 3156.7,
+        "max": 10389.5,
+        "median": 5300.1,
+        "p95": 9617.3,
+        "p99": 10389.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1,
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 26,
+        "302": 72,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 28
+    },
+    {
+      "timestamp": "2019-06-13T19:29:54.920Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 83,
+      "latency": {
+        "min": 307.5,
+        "max": 6207.6,
+        "median": 1114.6,
+        "p95": 4011,
+        "p99": 6166.6
+      },
+      "rps": {
+        "count": 84,
+        "mean": 8.5
+      },
+      "scenarioDuration": {
+        "min": 3190.5,
+        "max": 7782.9,
+        "median": 4830.2,
+        "p95": 7689.9,
+        "p99": 7782.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 27,
+        "302": 54,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 29
+    },
+    {
+      "timestamp": "2019-06-13T19:30:04.926Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 304.8,
+        "max": 7096,
+        "median": 1083.3,
+        "p95": 6299.6,
+        "p99": 7029.8
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.1
+      },
+      "scenarioDuration": {
+        "min": 3937.7,
+        "max": 8862.5,
+        "median": 6480.3,
+        "p95": 8726.3,
+        "p99": 8862.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 25,
+        "302": 61,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 33
+    },
+    {
+      "timestamp": "2019-06-13T19:30:14.934Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 33,
+      "requestsCompleted": 96,
+      "latency": {
+        "min": 72.1,
+        "max": 6992.8,
+        "median": 1127.1,
+        "p95": 5768,
+        "p99": 6989
+      },
+      "rps": {
+        "count": 92,
+        "mean": 9.2
+      },
+      "scenarioDuration": {
+        "min": 2842.3,
+        "max": 8668.1,
+        "median": 5091.9,
+        "p95": 8628.8,
+        "p99": 8668.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 28,
+        "302": 62,
+        "500": 6
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 29
+    },
+    {
+      "timestamp": "2019-06-13T19:30:24.938Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 111,
+      "latency": {
+        "min": 85.3,
+        "max": 9859,
+        "median": 1069.7,
+        "p95": 5037.1,
+        "p99": 8070.4
+      },
+      "rps": {
+        "count": 113,
+        "mean": 11.41
+      },
+      "scenarioDuration": {
+        "min": 3914.3,
+        "max": 11800.8,
+        "median": 5399.7,
+        "p95": 9368.3,
+        "p99": 11800.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2,
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 25,
+        "302": 85,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 31
+    },
+    {
+      "timestamp": "2019-06-13T19:30:34.942Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 109,
+      "latency": {
+        "min": 85,
+        "max": 6080.7,
+        "median": 1067.2,
+        "p95": 3812.6,
+        "p99": 5808.3
+      },
+      "rps": {
+        "count": 109,
+        "mean": 11.03
+      },
+      "scenarioDuration": {
+        "min": 3542.8,
+        "max": 7792.9,
+        "median": 4812.9,
+        "p95": 7424.7,
+        "p99": 7792.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 26,
+        "302": 81,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 31
+    },
+    {
+      "timestamp": "2019-06-13T19:30:44.948Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 303.9,
+        "max": 6153.6,
+        "median": 1111,
+        "p95": 4235.1,
+        "p99": 5673.8
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.13
+      },
+      "scenarioDuration": {
+        "min": 3743.9,
+        "max": 7926.4,
+        "median": 5267.3,
+        "p95": 6910.1,
+        "p99": 7926.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 61,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 31
+    },
+    {
+      "timestamp": "2019-06-13T19:30:54.958Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 108,
+      "latency": {
+        "min": 107.3,
+        "max": 8796,
+        "median": 1069,
+        "p95": 4589.7,
+        "p99": 7688.7
+      },
+      "rps": {
+        "count": 108,
+        "mean": 10.89
+      },
+      "scenarioDuration": {
+        "min": 3122.2,
+        "max": 10952.9,
+        "median": 4568,
+        "p95": 9018.3,
+        "p99": 10952.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 26,
+        "302": 80,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 31
+    },
+    {
+      "timestamp": "2019-06-13T19:31:04.968Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 89,
+      "latency": {
+        "min": 316.8,
+        "max": 7362.1,
+        "median": 1113.6,
+        "p95": 4117,
+        "p99": 7003.3
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.86
+      },
+      "scenarioDuration": {
+        "min": 3361.1,
+        "max": 8968.9,
+        "median": 4847.6,
+        "p95": 8260.1,
+        "p99": 8968.9
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 29,
+        "302": 58,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 30
+    },
+    {
+      "timestamp": "2019-06-13T19:31:14.972Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 112,
+      "latency": {
+        "min": 52.2,
+        "max": 15765.5,
+        "median": 1050.2,
+        "p95": 5406.7,
+        "p99": 14641.5
+      },
+      "rps": {
+        "count": 114,
+        "mean": 11.53
+      },
+      "scenarioDuration": {
+        "min": 3307.2,
+        "max": 17385.3,
+        "median": 5528.3,
+        "p95": 16086.5,
+        "p99": 17385.3
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 2,
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 25,
+        "302": 86,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 32
+    },
+    {
+      "timestamp": "2019-06-13T19:31:24.975Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 96,
+      "latency": {
+        "min": 101.5,
+        "max": 4959.7,
+        "median": 1069.5,
+        "p95": 3875.1,
+        "p99": 4638.6
+      },
+      "rps": {
+        "count": 100,
+        "mean": 10.06
+      },
+      "scenarioDuration": {
+        "min": 3179.5,
+        "max": 6590.2,
+        "median": 4576.2,
+        "p95": 6172.6,
+        "p99": 6590.2
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 23,
+        "302": 71,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 36
+    },
+    {
+      "timestamp": "2019-06-13T19:31:34.982Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 303.9,
+        "max": 13697.4,
+        "median": 1091.2,
+        "p95": 7708.6,
+        "p99": 12584.5
+      },
+      "rps": {
+        "count": 90,
+        "mean": 9.05
+      },
+      "scenarioDuration": {
+        "min": 3219.6,
+        "max": 15550.8,
+        "median": 5133.3,
+        "p95": 12699,
+        "p99": 15550.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 30,
+        "302": 60,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 35
+    },
+    {
+      "timestamp": "2019-06-13T19:31:44.984Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 314.7,
+        "max": 9307,
+        "median": 1096.3,
+        "p95": 5332.5,
+        "p99": 8320.4
+      },
+      "rps": {
+        "count": 89,
+        "mean": 8.95
+      },
+      "scenarioDuration": {
+        "min": 3815,
+        "max": 11102,
+        "median": 5609.1,
+        "p95": 8460.6,
+        "p99": 11102
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 59,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 33
+    },
+    {
+      "timestamp": "2019-06-13T19:31:55.014Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 94,
+      "latency": {
+        "min": 56.3,
+        "max": 5784.1,
+        "median": 1090.3,
+        "p95": 3841,
+        "p99": 5329.9
+      },
+      "rps": {
+        "count": 93,
+        "mean": 9.43
+      },
+      "scenarioDuration": {
+        "min": 3110.5,
+        "max": 7443.7,
+        "median": 4826.9,
+        "p95": 6437,
+        "p99": 7443.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 30,
+        "302": 63,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 32
+    },
+    {
+      "timestamp": "2019-06-13T19:32:05.018Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 114,
+      "latency": {
+        "min": 80.6,
+        "max": 5862.3,
+        "median": 1068.8,
+        "p95": 4154.3,
+        "p99": 5785.3
+      },
+      "rps": {
+        "count": 115,
+        "mean": 11.52
+      },
+      "scenarioDuration": {
+        "min": 3287.6,
+        "max": 7745.8,
+        "median": 4763.2,
+        "p95": 7629.1,
+        "p99": 7745.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 23,
+        "302": 87,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 33
+    },
+    {
+      "timestamp": "2019-06-13T19:32:15.020Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 92,
+      "latency": {
+        "min": 109.2,
+        "max": 5290.3,
+        "median": 1080.8,
+        "p95": 4432.3,
+        "p99": 5173.1
+      },
+      "rps": {
+        "count": 94,
+        "mean": 9.42
+      },
+      "scenarioDuration": {
+        "min": 2919,
+        "max": 6980.4,
+        "median": 4733.1,
+        "p95": 6879.7,
+        "p99": 6980.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 26,
+        "302": 65,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 35
+    },
+    {
+      "timestamp": "2019-06-13T19:32:25.022Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 100,
+      "latency": {
+        "min": 84.4,
+        "max": 11581.7,
+        "median": 1071.8,
+        "p95": 5622.3,
+        "p99": 8939.2
+      },
+      "rps": {
+        "count": 96,
+        "mean": 9.61
+      },
+      "scenarioDuration": {
+        "min": 3104,
+        "max": 13464.8,
+        "median": 5210.3,
+        "p95": 8057.8,
+        "p99": 13464.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 31,
+        "302": 67,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 31
+    },
+    {
+      "timestamp": "2019-06-13T19:32:35.184Z",
+      "scenariosCreated": 31,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 315.7,
+        "max": 5498.3,
+        "median": 1080.3,
+        "p95": 4168.9,
+        "p99": 5425.8
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.67
+      },
+      "scenarioDuration": {
+        "min": 3204.3,
+        "max": 7222.7,
+        "median": 4996.1,
+        "p95": 6964.4,
+        "p99": 7222.7
+      },
+      "scenarioCounts": {
+        "0": 31
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 58,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 32
+    },
+    {
+      "timestamp": "2019-06-13T19:32:45.188Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 24,
+      "requestsCompleted": 82,
+      "latency": {
+        "min": 312.9,
+        "max": 6076,
+        "median": 1087.1,
+        "p95": 4622.6,
+        "p99": 5952.6
+      },
+      "rps": {
+        "count": 85,
+        "mean": 8.5
+      },
+      "scenarioDuration": {
+        "min": 3170.4,
+        "max": 7646.6,
+        "median": 5105.7,
+        "p95": 7268.2,
+        "p99": 7646.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 24,
+        "302": 54,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 35
+    },
+    {
+      "timestamp": "2019-06-13T19:32:55.192Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 91,
+      "latency": {
+        "min": 305.4,
+        "max": 8200.3,
+        "median": 1111.7,
+        "p95": 4970.6,
+        "p99": 7636.3
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.12
+      },
+      "scenarioDuration": {
+        "min": 3518.8,
+        "max": 9849.4,
+        "median": 5006.4,
+        "p95": 8456.5,
+        "p99": 9849.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 29,
+        "302": 61,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 35
+    },
+    {
+      "timestamp": "2019-06-13T19:33:05.195Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 90,
+      "latency": {
+        "min": 319,
+        "max": 7042.6,
+        "median": 1108.4,
+        "p95": 4943.7,
+        "p99": 6927.2
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.13
+      },
+      "scenarioDuration": {
+        "min": 3236.3,
+        "max": 8734.4,
+        "median": 5307.3,
+        "p95": 8663.1,
+        "p99": 8734.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 26,
+        "302": 61,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 36
+    },
+    {
+      "timestamp": "2019-06-13T19:33:15.201Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 88,
+      "latency": {
+        "min": 301.5,
+        "max": 8435.9,
+        "median": 1108.2,
+        "p95": 4868.2,
+        "p99": 8105.9
+      },
+      "rps": {
+        "count": 88,
+        "mean": 8.95
+      },
+      "scenarioDuration": {
+        "min": 3528.9,
+        "max": 10490.1,
+        "median": 5012,
+        "p95": 9507.1,
+        "p99": 10490.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 27,
+        "302": 58,
+        "500": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 36
+    },
+    {
+      "timestamp": "2019-06-13T19:33:25.204Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 101,
+      "latency": {
+        "min": 74.5,
+        "max": 8048.3,
+        "median": 1083.3,
+        "p95": 4833.1,
+        "p99": 6780.6
+      },
+      "rps": {
+        "count": 100,
+        "mean": 10.16
+      },
+      "scenarioDuration": {
+        "min": 3602.3,
+        "max": 9772.7,
+        "median": 4955.6,
+        "p95": 7191.1,
+        "p99": 9772.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 71,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 35
+    },
+    {
+      "timestamp": "2019-06-13T19:33:35.207Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 103,
+      "latency": {
+        "min": 111.2,
+        "max": 11933.5,
+        "median": 1069.3,
+        "p95": 4608.2,
+        "p99": 8948.7
+      },
+      "rps": {
+        "count": 107,
+        "mean": 10.94
+      },
+      "scenarioDuration": {
+        "min": 3016.3,
+        "max": 13632.7,
+        "median": 4876,
+        "p95": 9390.2,
+        "p99": 13632.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 24,
+        "302": 78,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 20,
+      "pendingRequests": 39
+    },
+    {
+      "timestamp": "2019-06-13T19:33:45.243Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 105,
+      "latency": {
+        "min": 106.6,
+        "max": 7651.8,
+        "median": 1071.8,
+        "p95": 5012,
+        "p99": 6830.9
+      },
+      "rps": {
+        "count": 100,
+        "mean": 10.12
+      },
+      "scenarioDuration": {
+        "min": 3772.8,
+        "max": 9320.8,
+        "median": 5152.3,
+        "p95": 7943.2,
+        "p99": 9320.8
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 33,
+        "302": 72
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 34
+    },
+    {
+      "timestamp": "2019-06-13T19:33:55.246Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 99,
+      "latency": {
+        "min": 87.3,
+        "max": 10071.9,
+        "median": 1080.9,
+        "p95": 5450.6,
+        "p99": 9251.7
+      },
+      "rps": {
+        "count": 97,
+        "mean": 9.75
+      },
+      "scenarioDuration": {
+        "min": 3007.2,
+        "max": 11948,
+        "median": 5427.7,
+        "p95": 10156,
+        "p99": 11948
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 68,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 32
+    },
+    {
+      "timestamp": "2019-06-13T19:34:05.252Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 19,
+      "requestsCompleted": 80,
+      "latency": {
+        "min": 42,
+        "max": 6974.5,
+        "median": 1075,
+        "p95": 5453.5,
+        "p99": 6691.3
+      },
+      "rps": {
+        "count": 91,
+        "mean": 9.2
+      },
+      "scenarioDuration": {
+        "min": 3874.6,
+        "max": 8601.4,
+        "median": 6325,
+        "p95": 8179.8,
+        "p99": 8601.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 19,
+        "302": 61
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 23,
+      "pendingRequests": 43
+    },
+    {
+      "timestamp": "2019-06-13T19:34:15.319Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 35,
+      "requestsCompleted": 111,
+      "latency": {
+        "min": 48,
+        "max": 14866,
+        "median": 1077.6,
+        "p95": 8249.2,
+        "p99": 12807.5
+      },
+      "rps": {
+        "count": 105,
+        "mean": 10.54
+      },
+      "scenarioDuration": {
+        "min": 2923.8,
+        "max": 16615.7,
+        "median": 5655.5,
+        "p95": 12918.5,
+        "p99": 16615.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1,
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 29,
+        "302": 76,
+        "500": 6
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 37
+    },
+    {
+      "timestamp": "2019-06-13T19:34:25.325Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 112,
+      "latency": {
+        "min": 91.5,
+        "max": 10446.6,
+        "median": 1076.8,
+        "p95": 5481.9,
+        "p99": 7586
+      },
+      "rps": {
+        "count": 110,
+        "mean": 11.04
+      },
+      "scenarioDuration": {
+        "min": 3038.6,
+        "max": 12234.5,
+        "median": 5188.9,
+        "p95": 7676.2,
+        "p99": 12234.5
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 28,
+        "302": 82,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 35
+    },
+    {
+      "timestamp": "2019-06-13T19:34:35.331Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 98,
+      "latency": {
+        "min": 85.9,
+        "max": 6705.4,
+        "median": 1069.2,
+        "p95": 4626.4,
+        "p99": 6100.4
+      },
+      "rps": {
+        "count": 98,
+        "mean": 10
+      },
+      "scenarioDuration": {
+        "min": 3204,
+        "max": 8564.1,
+        "median": 4691.5,
+        "p95": 7357,
+        "p99": 8564.1
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 25,
+        "302": 69,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 35
+    },
+    {
+      "timestamp": "2019-06-13T19:34:45.335Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 99,
+      "latency": {
+        "min": 95.4,
+        "max": 4858.6,
+        "median": 1079.2,
+        "p95": 4077.9,
+        "p99": 4693.8
+      },
+      "rps": {
+        "count": 102,
+        "mean": 10.23
+      },
+      "scenarioDuration": {
+        "min": 3568.7,
+        "max": 6562.6,
+        "median": 5180.1,
+        "p95": 6239.3,
+        "p99": 6562.6
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 26,
+        "302": 73
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 19,
+      "pendingRequests": 38
+    },
+    {
+      "timestamp": "2019-06-13T19:34:55.339Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 87,
+      "latency": {
+        "min": 306.7,
+        "max": 11741.5,
+        "median": 1101.8,
+        "p95": 4781.6,
+        "p99": 10058.9
+      },
+      "rps": {
+        "count": 85,
+        "mean": 8.66
+      },
+      "scenarioDuration": {
+        "min": 3592.8,
+        "max": 13160.4,
+        "median": 5049,
+        "p95": 8799.6,
+        "p99": 13160.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 55,
+        "500": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 36
+    },
+    {
+      "timestamp": "2019-06-13T19:35:05.342Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 101,
+      "latency": {
+        "min": 82.3,
+        "max": 7347.4,
+        "median": 1099,
+        "p95": 4875.5,
+        "p99": 6904.3
+      },
+      "rps": {
+        "count": 99,
+        "mean": 9.91
+      },
+      "scenarioDuration": {
+        "min": 3373.6,
+        "max": 9129.7,
+        "median": 5133,
+        "p95": 8381.6,
+        "p99": 9129.7
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 30,
+        "302": 70,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 34
+    },
+    {
+      "timestamp": "2019-06-13T19:35:15.348Z",
+      "scenariosCreated": 30,
+      "scenariosCompleted": 24,
+      "requestsCompleted": 104,
+      "latency": {
+        "min": 86.4,
+        "max": 5730.4,
+        "median": 1052.8,
+        "p95": 4500.1,
+        "p99": 5428.6
+      },
+      "rps": {
+        "count": 108,
+        "mean": 10.94
+      },
+      "scenarioDuration": {
+        "min": 3589.1,
+        "max": 7332.4,
+        "median": 4994.9,
+        "p95": 7052,
+        "p99": 7332.4
+      },
+      "scenarioCounts": {
+        "0": 30
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 2
+      },
+      "codes": {
+        "200": 23,
+        "302": 80,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 38
+    },
+    {
+      "timestamp": "2019-06-13T19:35:25.349Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 85,
+      "latency": {
+        "min": 303.7,
+        "max": 12615.5,
+        "median": 1075.1,
+        "p95": 6084.8,
+        "p99": 11108.8
+      },
+      "rps": {
+        "count": 84,
+        "mean": 8.41
+      },
+      "scenarioDuration": {
+        "min": 3444.8,
+        "max": 14340.5,
+        "median": 5175.5,
+        "p95": 10515.8,
+        "p99": 14340.5
+      },
+      "scenarioCounts": {
+        "0": 28
+      },
+      "errors": {},
+      "codes": {
+        "200": 28,
+        "302": 56,
+        "500": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 37
+    },
+    {
+      "timestamp": "2019-06-13T19:35:35.354Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 20,
+      "requestsCompleted": 43,
+      "latency": {
+        "min": 62.5,
+        "max": 17203.5,
+        "median": 1133.2,
+        "p95": 9785,
+        "p99": 17203.5
+      },
+      "rps": {
+        "count": 33,
+        "mean": 3.38
+      },
+      "scenarioDuration": {
+        "min": 3659.6,
+        "max": 18864,
+        "median": 5683.6,
+        "p95": 16805.2,
+        "p99": 18864
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {
+        "UNABLE_TO_VERIFY_LEAF_SIGNATURE": 1
+      },
+      "codes": {
+        "200": 20,
+        "302": 23
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 27
+    },
+    {
+      "timestamp": "2019-06-13T19:35:45.355Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 31,
+      "latency": {
+        "min": 323.9,
+        "max": 8603.6,
+        "median": 1102.7,
+        "p95": 4160.7,
+        "p99": 8603.6
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.05
+      },
+      "scenarioDuration": {
+        "min": 3938.9,
+        "max": 10355.3,
+        "median": 4589,
+        "p95": 10355.3,
+        "p99": 10355.3
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 11,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 26
+    },
+    {
+      "timestamp": "2019-06-13T19:35:55.357Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 9,
+      "requestsCompleted": 29,
+      "latency": {
+        "min": 311.3,
+        "max": 4279.9,
+        "median": 1065.8,
+        "p95": 3727.1,
+        "p99": 4279.9
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.05
+      },
+      "scenarioDuration": {
+        "min": 3610.6,
+        "max": 5988.5,
+        "median": 4058,
+        "p95": 5988.5,
+        "p99": 5988.5
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 9,
+        "302": 20
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 6,
+      "pendingRequests": 27
+    },
+    {
+      "timestamp": "2019-06-13T19:36:05.360Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 10,
+      "requestsCompleted": 41,
+      "latency": {
+        "min": 85.5,
+        "max": 4128.8,
+        "median": 1051.9,
+        "p95": 3863.6,
+        "p99": 4128.8
+      },
+      "rps": {
+        "count": 40,
+        "mean": 4.05
+      },
+      "scenarioDuration": {
+        "min": 3691.3,
+        "max": 5944.5,
+        "median": 4870.5,
+        "p95": 5944.5,
+        "p99": 5944.5
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {
+        "Exceeded maxRedirects. Probably stuck in a redirect loop https://wcpreview.telus.com/my-account?raoverview=false": 1
+      },
+      "codes": {
+        "200": 10,
+        "302": 31
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 26
+    },
+    {
+      "timestamp": "2019-06-13T19:36:15.364Z",
+      "scenariosCreated": 10,
+      "scenariosCompleted": 11,
+      "requestsCompleted": 30,
+      "latency": {
+        "min": 308.4,
+        "max": 8769.2,
+        "median": 1072.1,
+        "p95": 4799.3,
+        "p99": 8769.2
+      },
+      "rps": {
+        "count": 30,
+        "mean": 3.04
+      },
+      "scenarioDuration": {
+        "min": 1928.3,
+        "max": 10470.1,
+        "median": 4146,
+        "p95": 10268.2,
+        "p99": 10470.1
+      },
+      "scenarioCounts": {
+        "0": 10
+      },
+      "errors": {},
+      "codes": {
+        "200": 8,
+        "302": 20,
+        "500": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 4,
+      "pendingRequests": 26
+    },
+    {
+      "timestamp": "2019-06-13T19:36:25.463Z",
+      "scenariosCreated": 9,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 28,
+      "latency": {
+        "min": 291.9,
+        "max": 7705.2,
+        "median": 1095.8,
+        "p95": 6778.1,
+        "p99": 7705.2
+      },
+      "rps": {
+        "count": 29,
+        "mean": 2.92
+      },
+      "scenarioDuration": {
+        "min": 4104.6,
+        "max": 9297.6,
+        "median": 5780.1,
+        "p95": 9297.6,
+        "p99": 9297.6
+      },
+      "scenarioCounts": {
+        "0": 9
+      },
+      "errors": {},
+      "codes": {
+        "200": 7,
+        "302": 20,
+        "502": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 5,
+      "pendingRequests": 27
+    },
+    {
+      "timestamp": "2019-06-13T19:36:30.661Z",
+      "scenariosCreated": 0,
+      "scenariosCompleted": 5,
+      "requestsCompleted": 6,
+      "latency": {
+        "min": 347.4,
+        "max": 6906.5,
+        "median": 5581.2,
+        "p95": 6906.5,
+        "p99": 6906.5
+      },
+      "rps": {
+        "count": 1,
+        "mean": 0.2
+      },
+      "scenarioDuration": {
+        "min": 5248.8,
+        "max": 8561.5,
+        "median": 7333.4,
+        "p95": 8561.5,
+        "p99": 8561.5
+      },
+      "scenarioCounts": {},
+      "errors": {},
+      "codes": {
+        "200": 5,
+        "302": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 22
+    }
+  ]
+};
+  </script>
+
+  <style>
+      h1 {
+        line-height: 200%;
+      }
+
+      body {
+          background-color: #fcfcfc;
+      }
+
+      .container {
+          width: 100%;
+          min-width: 960px;
+      }
+  </style>
+
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="row" id="header">
+  <div class="col-lg-4 col-lg-offset-4">
+    <pre style="font-size: 5pt; background-color: #fcfcfc; border: none;">
+            _   _ _ _                                                _
+  __ _ _ __| |_(_) | | ___ _ __ _   _      _ __ ___ _ __   ___  _ __| |_
+ / _` | '__| __| | | |/ _ \ '__| | | |    | '__/ _ \ '_ \ / _ \| '__| __|
+| (_| | |  | |_| | | |  __/ |  | |_| |    | | |  __/ |_) | (_) | |  | |_
+ \__,_|_|   \__|_|_|_|\___|_|   \__, |    |_|  \___| .__/ \___/|_|   \__|
+                                |___/              |_|
+
+    </pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="text-center" id="page-title">Test run on <span id="timestamp">date</span></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3">
+    <p><strong>Summary</strong></p>
+    <table class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <td>Test duration</td>
+          <td><span id="testDuration">0</span> sec</td>
+        </tr>
+        <tr>
+          <td>Scenarios created</td>
+          <td><span id="scenariosCreated">0</span></td>
+        </tr>
+
+        <tr>
+          <td>Scenarios completed</td>
+          <td><span id="scenariosCompleted">0</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-lg-5" id="scenarioCountsContainer">
+    <div>
+      <strong>Scenario counts:</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="scenarioCounts">
+      </table>
+    </div>
+  </div>
+
+  <div class="col-lg-1">
+    <div id="codesContainer">
+      <strong>Codes</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="codes">
+      </table>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div id="errorsContainer">
+      <strong>Errors</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="errors">
+      </table>
+    </div>
+  </div>
+</div> <!-- /.row -->
+
+<div class="row">
+  <div class="text-center col-lg-12">
+    <h2>Charts</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="latency-histogram text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="latency text-center col-lg-12"></div>
+</div>
+
+<div class="latency-legend"></div>
+
+<div class="row">
+
+</div>
+
+<div class="row">
+  <div class="concurrency text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="rps-mean text-center col-lg-12"></div>
+</div>
+<div class="row">
+  <div class="rps-count text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="codes-line text-center col-lg-12"></div>
+</div>
+<div class="row">
+  <div class="errors-line text-center col-lg-12"></div>
+</div>
+
+
+  
+
+
+</div>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <h3 class="text-center">Raw report data</h3>
+    <p>This is the raw JSON stats output that the report was generated from.</p>
+    <div id="editor">
+    </div>
+  </div>
+</div>
+
+<script>
+var editor = ace.edit("editor");
+editor.getSession().setMode("ace/mode/javascript");
+editor.setValue(JSON.stringify(Report, null, 2));
+editor.gotoLine(1);editor.setHighlightActiveLine(false);
+
+var l = _;
+
+$('#timestamp').html(moment(Report.aggregate.timestamp).format('DD MMM YYYY HH:mm:SS'));
+$('#testDuration').html(l.size(Report.intermediate) * 10);
+$('#scenariosCompleted').html(Report.aggregate.scenariosCompleted);
+$('#scenariosCreated').html(Report.aggregate.scenariosCreated);
+
+var markers = [];
+if(l.size(Report.phases) > 0) {
+  markers = l.foldl(Report.phases, function(acc, phase, index) {
+    var label = phase.name || 'Phase ' + (index + 1);
+    var timestamp = (index === 0) ? 0 : Report.phases[index - 1].duration + acc[index - 1].timestamp;
+
+    acc.push({
+      timestamp: timestamp,
+      label: label
+    });
+
+    return acc;
+  }, []);
+}
+
+if (l.size(Report.aggregate.scenarioCounts) > 0) {
+  l.each(Report.aggregate.scenarioCounts, function(count, name) {
+    var $tdName = $('<td>' + name + '</td>');
+    var percentage = Math.round(count / Report.aggregate.scenariosCreated * 100 * 1000) / 1000;
+    var $tdCount = $('<td>' + count + ' (' + percentage + '%)' + '</td>');
+    var $el = $('<tr></tr>')
+      .append($tdName)
+      .append($tdCount)
+      .appendTo($('#scenarioCounts'));
+  });
+} else {
+  $('#scenarioCountsContainer').hide();
+}
+
+if (l.size(Report.aggregate.codes) > 0) {
+  l.each(Report.aggregate.codes, function(count, code) {
+    var anchor = '';
+    if (code >= 100 && code < 200) {
+      anchor = '#1xx_Informational';
+    } else if (code >= 200 && code < 300) {
+      anchor = '#2xx_Success';
+    } else if (code >= 300 && code < 400) {
+      anchor = '#3xx_Redirection';
+    } else if (code >= 400 && code < 500) {
+      anchor = '#4xx_Client_Error';
+    } else if (code >= 500 && code < 600) {
+      anchor = '#5xx_Server_Error';
+    }
+
+    var $a = $('<a>' + code + '</a>').attr('href', 'https://en.wikipedia.org/wiki/List_of_HTTP_status_codes' + anchor);
+    var $td = $('<td></td>').append($a);
+    var $el = $('<tr></tr>')
+      .append($td)
+      .append($('<td>' + count + '</td>'))
+      .appendTo($('#codes'));
+  });
+} else {
+  $('#codesContainer').hide();
+}
+
+if (l.size(Report.aggregate.errors) > 0) {
+  l.each(Report.aggregate.errors, function(count, code) {
+    var $el = $('<tr></tr>')
+      .append($('<td>' + code + '</td>'))
+      .append($('<td>' + count + '</td>'))
+      .appendTo($('#errors'));
+  });
+} else {
+  $('#errorsContainer > p').html('&#10004; Test completed without network or OS errors.');
+}
+
+var histogramData = l.map(Report.aggregate.latency, function(v, k) { return {bin: k, value: v} });
+
+MG.data_graphic({
+  chart_type: 'bar',
+  x_label: 'Percentile',
+  y_label: '(ms)',
+  animate_on_load: true,
+  title: 'Overall Latency Distribution',
+  description: 'Distribution of all observed response latencies',
+  target: '.latency-histogram',
+  data: histogramData,
+  x_accessor: 'bin',
+  y_accessor: 'value',
+  binned: true,
+  height: 250,
+  interpolate: 'monotone',
+  padding_percentage: 0,
+  bar_orientation: 'vertical',
+  width: 450
+});
+
+var chartData = l.map(
+  window.Report.intermediate,
+  function(o,i) {
+    return {
+      timestamp: i*10+10,
+
+      rpsMean: o.rps.mean,
+      rpsCount: o.rps.count,
+      concurrency: o.concurrency,
+      latencyMax: o.latency.max,
+      latencyp99: o.latency.p99,
+      latencyp95: o.latency.p95,
+      latencyMedian: o.latency.median,
+      latencyMin: o.latency.min
+    }
+  });
+
+//
+// Response codes
+//
+
+if (l.size(Report.aggregate.codes) > 0) {
+  var codesData = l.foldl(Report.intermediate, function(acc, o, i) {
+    var res = {};
+    res.timestamp = i*10+10;
+    l.each(o.codes, function(count, code) {
+      res[code] = count;
+    });
+    acc.push(res);
+    return acc;
+  }, []);
+  var uniqueCodes = l.foldl(Report.intermediate, function(acc, o) {
+    l.each(o.codes, function(count, code) {
+      if (l.indexOf(acc, code) === -1) {
+        acc.push(code);
+      }
+    });
+    return acc;
+  }, []);
+
+  MG.data_graphic({
+    x_label: 'Time',
+    y_label: 'Count',
+    title: 'HTTP codes',
+    description: 'Occurence of HTTP response codes',
+    target: '.codes-line',
+    data: codesData,
+    x_accessor: 'timestamp',
+    y_accessor: uniqueCodes,
+    legend: uniqueCodes,
+    right: 50,
+    chart_type: 'line',
+    area: false,
+    markers: markers,
+    width: 900
+  });
+}
+
+//
+// Errors
+//
+
+if (l.size(Report.aggregate.errors) > 0) {
+  var errorData = l.foldl(Report.intermediate, function(acc, o, i) {
+    var res = {};
+    res.timestamp = i*10+10;
+    l.each(o.errors, function(count, name) {
+      res[name] = count;
+    });
+    acc.push(res);
+    return acc;
+  }, []);
+  var uniqueErrors = l.foldl(Report.intermediate, function(acc, o) {
+    l.each(o.errors, function(count, name) {
+      if (l.indexOf(acc, name) === -1) {
+        acc.push(name);
+      }
+    });
+    return acc;
+  }, []);
+
+  MG.data_graphic({
+    title: 'Error Codes',
+    description: 'Occurence of error codes',
+    target: '.errors-line',
+    data: errorData,
+    x_accessor: 'timestamp',
+    y_accessor: uniqueErrors,
+    chart_type: 'line',
+    area: false,
+    markers: markers
+  });
+
+}
+
+//
+// Latency
+//
+MG.data_graphic({
+  chart_type: 'line',
+  x_label: 'Time',
+  y_label: '(ms)',
+  animate_on_load: true,
+  area: false,
+  title: "Latency At Intervals",
+  description: "Latency values at different points during the test run",
+  data: chartData,
+  target: '.latency',
+  width: 900,
+  x_accessor: 'timestamp',
+  y_accessor: ['latencyMin', 'latencyMedian', 'latencyp95', 'latencyMax'],
+  legend: ['min', 'p50', 'p95', 'max'],
+  //legend_target: '.latency-legend',
+  right: 50,
+  interpolate: 'monotone',
+  mouseover: function(d, i) {
+  },
+  markers: markers
+        });
+
+            MG.data_graphic({
+            animate_on_load: true,
+            area: false,
+            y_label: 'Count',
+            x_label: 'Time',
+            title: 'Concurrent users',
+            description: 'Concurrent users',
+            data: chartData,
+            target: '.concurrency',
+            x_accessor: 'timestamp',
+            y_accessor: ['concurrency'],
+            interpolate: 'monotone',
+            markers: markers,
+            width: 900
+            });
+
+MG.data_graphic({
+  animate_on_load: true,
+  area: false,
+  y_label: 'Count',
+  x_label: 'Time',
+  title: 'Mean RPS',
+  description: 'Mean requests per second',
+  data: chartData,
+  target: '.rps-mean',
+  x_accessor: 'timestamp',
+  y_accessor: ['rpsMean'],
+  interpolate: 'monotone',
+  markers: markers,
+  width: 900
+});
+
+MG.data_graphic({
+  animate_on_load: true,
+  area: false,
+  y_label: 'Count',
+  x_label: 'Time',
+  title: 'RPS Count',
+  description: 'Count of requests per second',
+  data: chartData,
+  target: '.rps-count',
+  x_accessor: 'timestamp',
+  y_accessor: ['rpsCount'],
+  interpolate: 'monotone',
+  markers: markers,
+  width: 900
+});
+</script>
+<div id="footer">
+  <footer>This report was created with <a href="https://artillery.io">Artillery</a> - free open-source load-testing for HTTP and WebSockets</footer>
+</div>
+</body>
+</html>
